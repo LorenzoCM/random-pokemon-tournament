@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import injectContext from './store/appContext.js';
+import HomePage from './components/homePage';
+import Knockout from './components/knockout';
+import Semifinal from './components/semifinal';
+import Final from './components/final';
+import Champion from './components/champion';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomePage} />          
+          <Route exact path="/knockout" component={Knockout} />
+          <Route exact path="/semifinal" component={Semifinal} />
+          <Route exact path="/final" component={Final} />
+          <Route exact path="/champion" component={Champion} />
+        </Switch>
+        <ToastContainer autoClose={3000} hideProgressBar limit={1} />
+      </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+export default injectContext(App);
