@@ -10,6 +10,10 @@ const Knockout = () => {
 
     const tournament = [[pokemon[0], pokemon[1]], [pokemon[2], pokemon[3]], [pokemon[4], pokemon[5]], [pokemon[6], pokemon[7]]];
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
     return (
         <>
             <div className="container mt-5">
